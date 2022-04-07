@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePartiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('parties', function (Blueprint $table) {
-            $table->id();
+        Schema::create('partys', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+
             $table->timestamps();
+
+            //Foreign Keys
+            $table->unsignedBigInteger('gameId');
+            $table->foreign('gameId', 'fk_partys_games')
+            ->on('games')
+            ->references('id')
+            ->onDelete('cascade');
         });
     }
 
