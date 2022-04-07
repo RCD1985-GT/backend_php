@@ -33,6 +33,13 @@ Route::get('allmessages', [MessageController::class, 'showAllMessages']);
 Route::put('updatemessage', [MessageController::class, 'updateMessages']);
 Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
+//Endpoints PARTY
+
+Route::post('addparty', [PartyController::class, 'añadirParty']);
+Route::get('allpartys', [PartyController::class, 'showAllParty']);
+Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

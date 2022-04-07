@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,22 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->string('body');
             $table->timestamps();
+
+
+            //Foreign Keys
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID', 'fk_message_users')
+            ->on('users')
+            ->references('Id')
+            ->onDelete('cascade');
+
+            $table->unsignedBigInteger('partyId');
+            $table->foreign('partyId', 'fk_message_partys')
+            ->on('partys')
+            ->references('Id')
+            ->onDelete('cascade');
         });
     }
 
