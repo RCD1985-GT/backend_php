@@ -18,7 +18,3 @@ Route::get('/', function () {
     // return ["nombre"=>"Paco"];
 });
 
-Route::get('/contactar', function () {
-    // return view('welcome');
-    return ["nombre"=>"CONTACTAR"];
-});

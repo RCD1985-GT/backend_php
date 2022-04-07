@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 //     return ["nombre"=>"Paco"];
 //     });
 
-
+//Endpoints USER
+Route::post('register', [UserController::class, 'registerUser']);
+Route::get('allusers', [UserController::class, 'showAllUsers']);
+Route::post('profile', [UserController::class, 'showProfile']);
+Route::put('update', [UserController::class, 'updateProfile']);
+Route::delete('delete', [UserController::class, 'deleteUser']);
 
 
 
