@@ -25,7 +25,12 @@ Route::post('profile', [UserController::class, 'showProfile']);
 Route::put('update', [UserController::class, 'updateProfile']);
 Route::delete('delete', [UserController::class, 'deleteUser']);
 
+//Endpoints MESSAGE
 
+Route::post('addmessage', [MessageController::class, 'añadirMessage']);
+Route::get('allmessages', [MessageController::class, 'showAllMessages']);
+Route::put('updatemessage', [MessageController::class, 'updateMessages']);
+Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
