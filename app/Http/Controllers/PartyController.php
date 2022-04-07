@@ -1,21 +1,78 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; 
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Party;
+use App\Models\User;
+use Illuminate\Database\QueryException;
 
 class PartyController extends Controller
 {
-    protected $table = 'partys';
+    public function showAllParty(){
 
-    protected $fillable = [
-        'name', 'gameId'
-    ];
+        try {
+            
+            return Party::all();
 
-    public function messages() {
+        } catch(QueryException $error) {
+            return $error;
+        }
+    }    
 
-        return $this->hasMany('App\Models\Message');
+    public function añadirParty(Request $request) {
+
+        $name = $request->input('name');
+        $game = $request->input('gameId');
+
+        try {
+
+            return Party::create([
+
+                    'name' => $name,
+                    'gameId' => $game
+
+                ]);
+        } 
+        
+        catch (QueryException $error) {
+
+            $codigoError = $error->errorInfo[1];
+
+            return response()->json([
+
+                'error' => $codigoError
+
+            ]);
+            
+        }
+
+    }
+
+    public function deleteParty(Request $request) {
+
+        $userId = User::id();
+        $partyId = $request->input('partyId');
+
+        try {
+
+            // Aquí verificamos que el usuario sea el creador de la party, ya que solo el creador podría eliminarla, de ser correcto se procede con la solicitud. De lo contrario no hará nada.
+
+            return Party::where('owner', '=', $userId)->where('id', '=', $partyId)->delete($partyId);
+
+        }
+
+        catch (QueryException $error) {
+
+            $errorCode = $error->errorInfo[1];
+
+            return response()->json([
+
+                'error' => $errorCode
+
+            ]);
+            
+        }
 
     }
 }
