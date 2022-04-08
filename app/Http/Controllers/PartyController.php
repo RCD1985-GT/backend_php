@@ -43,7 +43,7 @@ class PartyController extends Controller
 
             $codigoError = $error->errorInfo[1];
 
-            return response()->json([
+            return response()->json([ 
 
                 'error' => $codigoError
 
