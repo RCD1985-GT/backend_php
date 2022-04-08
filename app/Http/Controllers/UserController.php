@@ -10,6 +10,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    // FUNCION QUE MUESTRA TODOS LOS USUARIOS
     public function showAllUsers(){
 
         try {
@@ -21,6 +22,7 @@ class UserController extends Controller
         }
     }
 
+    // FUNCION QUE MUESTRA EL PERFIL DEL USUARIO
     public function showProfile(Request $request){
 
         $id = $request->input('id');
@@ -35,7 +37,7 @@ class UserController extends Controller
         }
     }
     
-
+    // FUNCION QUE REGISTRA UN USUARIO
     public function registerUser(Request $request){
 
         $email = $request->input('email');
@@ -71,30 +73,23 @@ class UserController extends Controller
         }
 
     }
-
+    
+    // FUNCION QUE ACTUALIZA UN USUARIO
     public function updateProfile(Request $request){
         
         $id = $request->input('id');
         $email = $request->input('email');
         $name = $request->input('name');
-
-
-        // try {
-        //     return User::where('id', '=', $id)
-        //     ->update(['email' => $email, 'name' =>$name, 'gender' =>$gender, 'orientation' =>$orientation,
-        //     'status' =>$status, 'intention' =>$intention, 'age' =>$age, 'surname' =>$surname]);
-        // } catch (\Throwable $th) {
-        //     //throw $th;
-        // }
-        
+       
     }
 
+    // FUNCION QUE BORRA UN USUARIO
     public function deleteUser(Request $request){
 
         $id = $request->input('id');
 
         try {
-            //BUSCA EL PLAYER POR ID. SI EXISTE, BORRA EL PLAYER. SI NO, SACA MENSAJE DE ERROR
+            
             $arrayUser = USER::all()
             ->where('id', '=', $id);
 

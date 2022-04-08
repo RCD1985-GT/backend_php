@@ -30,7 +30,7 @@ class MessageController extends Controller
     }
 
         // FUNCION QUE AÑADE UN MENSAJE
-    public function añadirMessage(Request $request) {
+    public function addMessage(Request $request) {
 
         $user = $request->input('userId');
         $message = $request->input('body');
@@ -64,7 +64,7 @@ class MessageController extends Controller
      // FUNCION QUE ACTUALIZA UN MENSAJE
     public function updateMessages(Request $request) {
 
-        $user = User::id();
+        $user = User::id(); // USER AQUI ESTA APAGADO
         $messageId = $request->input('messageId');
 
         try { 

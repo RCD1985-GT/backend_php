@@ -19,14 +19,12 @@ class CreateMessagesTable extends Migration // CAMBIAR ESTA LINEA EN PARTY Y GAM
             $table->timestamps();
 
 
-            //Foreign Keys
-            $table->unsignedBigInteger('userID');
-            $table->foreign('userID', 'fk_message_users')
-            ->on('users')
-            ->references('Id')
-            ->onDelete('cascade');
+            // AQUI TENDRE QUE PONER UNA FOREIGN KEY DE USUARIO PARA RELACIOAR UN MENSAJE CON UN USUARIO
 
-            
+            // AQUI TENDRE QUE PONER UNA FOREIGN KEY DE PARTIDAS PARA RELACIOAR UN MENSAJE CON UNA PARTIDA
+
+
+
         });
     }
 

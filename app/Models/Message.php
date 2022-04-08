@@ -10,14 +10,10 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [ // AQUI VAN LOS CAMPOS DE LA TABLA
-        'body', 'userID'
+        'body' 
         
     ];
 
 
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User','userID','Id');
-    }
-   
+ 
 }

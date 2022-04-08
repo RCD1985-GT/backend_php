@@ -3,7 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use Illuminate\Database\QueryException;
+use App\Http\Controllers\MessageController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,7 +32,7 @@ Route::delete('delete', [UserController::class, 'deleteUser']);
 
 //Endpoints MESSAGE
 
-Route::post('addmessage', [MessageController::class, 'añadirMessage']);
+Route::post('addmessage', [MessageController::class, 'addMessage']);
 Route::get('allmessages', [MessageController::class, 'showAllMessages']);
 Route::put('updatemessage', [MessageController::class, 'updateMessages']);
 Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
