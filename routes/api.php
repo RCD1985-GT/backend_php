@@ -4,24 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PartyController; 
 
-
-
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-// Route::get('/', function () {
-//     return view('welcome');
-//     return ["nombre"=>"Paco"];
-//     });
 
 //Endpoints USER
 Route::post('register', [UserController::class, 'registerUser']);
@@ -37,7 +21,11 @@ Route::get('allmessages', [MessageController::class, 'showAllMessages']);
 Route::put('updatemessage', [MessageController::class, 'updateMessages']);
 Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
+//Endpoints PARTY
 
+Route::post('addparty', [PartyController::class, 'añadirParty']);
+Route::get('allpartys', [PartyController::class, 'showAllParty']);
+Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

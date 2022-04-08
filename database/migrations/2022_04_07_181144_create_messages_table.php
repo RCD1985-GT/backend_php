@@ -13,7 +13,7 @@ class CreateMessagesTable extends Migration // CAMBIAR ESTA LINEA EN PARTY Y GAM
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) { // AQUI VAN LOS CAMPOS DE LA TABLA MESSAGE
             $table->id();
             $table->string('body');
             $table->timestamps();
