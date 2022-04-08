@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+class CreateMessagesTable extends Migration // CAMBIAR ESTA LINEA EN PARTY Y GAME
 {
     /**
      * Run the migrations.

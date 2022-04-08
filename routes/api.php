@@ -33,18 +33,6 @@ Route::get('allmessages', [MessageController::class, 'showAllMessages']);
 Route::put('updatemessage', [MessageController::class, 'updateMessages']);
 Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
-//Endpoints PARTY
-
-Route::post('addparty', [PartyController::class, 'añadirParty']);
-Route::get('allpartys', [PartyController::class, 'showAllParty']);
-Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
-
-//Endpoints GAME
-
-Route::post('addgame', [GameController::class, 'añadirGame']);
-Route::get('allgames', [GameController::class, 'showAllGames']);
-Route::put('updategame', [GameController::class, 'updateGames']);
-Route::delete('deletegame', [GameController::class, 'deleteGame']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

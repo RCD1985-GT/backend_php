@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'body', 'userID', 'partyId'
+
+    protected $fillable = [ // AQUI VAN LOS CAMPOS DE LA TABLA
+        'body', 
+        'userID', 
+        'partyId', //HAY ESTA COMA? en USER SI QUE ESTA
     ];
 
 

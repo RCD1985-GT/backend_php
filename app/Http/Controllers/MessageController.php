@@ -3,12 +3,16 @@
 namespace App\Http\Controllers; 
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+
 use App\Models\Message;
 use App\Models\User;
-use Illuminate\Database\QueryException;
+
 
 class MessageController extends Controller
 {
+
+    // FUNCION QUE ENSEÑA TODOS LOS MENSAJES
     public function showAllMessages() {
 
         try {
@@ -25,6 +29,7 @@ class MessageController extends Controller
 
     }
 
+        // FUNCION QUE AÑADE UN MENSAJE
     public function añadirMessage(Request $request) {
 
         $user = $request->input('userId');
@@ -57,6 +62,7 @@ class MessageController extends Controller
 
     }
 
+     // FUNCION QUE ACTUALIZA UN MENSAJE
     public function updateMessages(Request $request) {
 
         $user = User::id();
@@ -83,6 +89,7 @@ class MessageController extends Controller
 
     }
 
+     // FUNCION QUE BORRA UN MENSAJE
     public function deleteMessage(Request $request) {
 
         $user = User::id();
