@@ -33,7 +33,6 @@ class MessageController extends Controller
     public function añadirMessage(Request $request) {
 
         $user = $request->input('userId');
-        $partyId = $request->input('partyId');
         $message = $request->input('body');
 
         try {
@@ -42,7 +41,7 @@ class MessageController extends Controller
 
                 'userID' => $user,
                 'body' => $message,
-                'partyId' => $partyId
+                
 
             ]);
 

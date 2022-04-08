@@ -26,11 +26,7 @@ class CreateMessagesTable extends Migration // CAMBIAR ESTA LINEA EN PARTY Y GAM
             ->references('Id')
             ->onDelete('cascade');
 
-            $table->unsignedBigInteger('partyId');
-            $table->foreign('partyId', 'fk_message_partys')
-            ->on('partys')
-            ->references('Id')
-            ->onDelete('cascade');
+            
         });
     }
 
