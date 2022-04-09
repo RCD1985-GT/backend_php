@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('game_id');
             $table->timestamps();
 
             // FALTAN FOREIGN KEYS PARA RELACIONAR
-
+            $table->foreign('game_id')->references('id')->on('games');
         });
     }
 
