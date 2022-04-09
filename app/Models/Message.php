@@ -9,11 +9,16 @@ class Message extends Model
 {
     use HasFactory;
 
+    // FILLABLE
     protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR EL CAMPO 'body'
-        'body' 
-        
+        'body'
+
     ];
 
+    // PUBLIC
+    public function messages() // POR QUE MESSAGES?
+    {
 
- 
+        return $this->hasMany('App\Models\Message');
+    }
 }

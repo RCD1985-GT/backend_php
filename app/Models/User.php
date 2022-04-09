@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // FILLABLE
     protected $fillable = [// SIGNIFICA QUE SOLO PUEDES RELLENAR LOS CAMPOS 'email' y 'password'
         'email',
         'password'
@@ -27,6 +29,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // HIDDEN
     protected $hidden = [ // SIGNIFICA QUE NO SE VEN
         'password',
         'remember_token',
@@ -37,6 +41,8 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
+    // PROTECTED
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

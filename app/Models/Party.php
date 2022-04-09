@@ -9,11 +9,14 @@ class Party extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    // FILLABLE
+    protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR EL CAMPO 'name'
         'name' 
     ];
 
-    public function messages() {
+
+    // PUBLIC
+    public function messages() { // POR QUE MESSAGES?
 
         return $this->hasMany('App\Models\Message');
 
