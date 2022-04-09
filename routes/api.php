@@ -23,9 +23,9 @@ Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
 //Endpoints PARTY
 
-// Route::post('addparty', [PartyController::class, 'añadirParty']);
-// Route::get('allpartys', [PartyController::class, 'showAllParty']);
-// Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
+Route::post('addparty', [PartyController::class, 'añadirParty']);
+Route::get('allpartys', [PartyController::class, 'showAllParty']);
+Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
 
 
 //Endpoints GAME
