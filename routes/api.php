@@ -23,14 +23,14 @@ Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
 //Endpoints PARTY
 
-Route::post('addparty', [PartyController::class, 'añadirParty']);
+Route::post('addparty', [PartyController::class, 'addParty']);
 Route::get('allpartys', [PartyController::class, 'showAllParty']);
 Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
 
 
 //Endpoints GAME
 
-Route::post('addgame', [GameController::class, 'añadirGame']);
+Route::post('addgame', [GameController::class, 'addGame']);
 Route::get('allgames', [GameController::class, 'showAllGames']);
 Route::put('updategame', [GameController::class, 'updateGames']);
 Route::delete('deletegame', [GameController::class, 'deleteGame']);
