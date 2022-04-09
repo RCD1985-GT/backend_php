@@ -10,18 +10,22 @@ use App\Models\User;
 
 class PartyController extends Controller
 {
-    public function showAllParty(){
+
+    // FUNCION QUE MUESTRA PARTIDAS
+    public function showAllParty()
+    {
 
         try {
-            
-            return Party::all();
 
-        } catch(QueryException $error) {
+            return Party::all();
+        } catch (QueryException $error) {
             return $error;
         }
-    }    
+    }
 
-    public function addParty(Request $request) {
+    // FUNCION QUE AÑADE PARTIDA
+    public function addParty(Request $request)
+    {
 
         $name = $request->input('name');
         $game = $request->input('gameId');
@@ -30,13 +34,11 @@ class PartyController extends Controller
 
             return Party::create([
 
-                    'name' => $name,
-                    'gameId' => $game
+                'name' => $name,
+                'gameId' => $game
 
-                ]);
-        } 
-        
-        catch (QueryException $error) {
+            ]);
+        } catch (QueryException $error) {
 
             $codigoError = $error->errorInfo[1];
 
@@ -45,25 +47,21 @@ class PartyController extends Controller
                 'error' => $codigoError
 
             ]);
-            
         }
-
     }
 
-    public function deleteParty(Request $request) {
+    // FUNCION QUE BORRA PARTIDA
+    public function deleteParty(Request $request)
+    {
 
         $userId = User::id();
         $partyId = $request->input('partyId');
 
-        try {
-
-            // Aquí verificamos que el usuario sea el creador de la party, ya que solo el creador podría eliminarla, de ser correcto se procede con la solicitud. De lo contrario no hará nada.
+        try { // VERIFICA QE USUARIO ES CREADOR PARA PODER ELIMINAR LA PARTIDA
 
             return Party::where('owner', '=', $userId)->where('id', '=', $partyId)->delete($partyId);
 
-        }
-
-        catch (QueryException $error) {
+        } catch (QueryException $error) {
 
             $errorCode = $error->errorInfo[1];
 
@@ -72,8 +70,6 @@ class PartyController extends Controller
                 'error' => $errorCode
 
             ]);
-            
         }
-
     }
 }
