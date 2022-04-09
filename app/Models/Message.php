@@ -9,7 +9,7 @@ class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ // AQUI VAN LOS CAMPOS QUE QUEREMOS QUE APAREZCAN DE LA TABLA¿?
+    protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR EL CAMPO 'body'
         'body' 
         
     ];

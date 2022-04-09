@@ -17,10 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
+    protected $fillable = [// SIGNIFICA QUE SOLO PUEDES RELLENAR LOS CAMPOS 'email' y 'password'
         'email',
-        'password', // AQUI SI QUE HAY COMA POR DEFECTO
+        'password'
     ];
 
     /**
@@ -28,7 +27,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
+    protected $hidden = [ // SIGNIFICA QUE NO SE VEN
         'password',
         'remember_token',
     ];
