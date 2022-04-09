@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MessageController;
 // use App\Http\Controllers\PartyController; 
-
+use App\Http\Controllers\GameController;
 
 //Endpoints USER
 Route::post('register', [UserController::class, 'registerUser']);
@@ -26,6 +26,15 @@ Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 // Route::post('addparty', [PartyController::class, 'añadirParty']);
 // Route::get('allpartys', [PartyController::class, 'showAllParty']);
 // Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
+
+
+//Endpoints GAME
+
+Route::post('addgame', [GameController::class, 'añadirGame']);
+Route::get('allgames', [GameController::class, 'showAllGames']);
+Route::put('updategame', [GameController::class, 'updateGames']);
+Route::delete('deletegame', [GameController::class, 'deleteGame']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
