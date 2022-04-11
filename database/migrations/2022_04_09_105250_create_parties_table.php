@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             // FALTAN FOREIGN KEYS PARA RELACIONAR
             $table->foreign('game_id')->references('id')->on('games');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

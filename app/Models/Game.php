@@ -11,7 +11,7 @@ class Game extends Model
 
     // FILLABLE
     protected $fillable = [ // // SIGNIFICA QUE SOLO PUEDES RELLENAR LOS CAMPOS 'title' y 'url'
-        'title', 'url'
+        'name', 'url'
     ];
 
     public function user() { // POR QUE USER?

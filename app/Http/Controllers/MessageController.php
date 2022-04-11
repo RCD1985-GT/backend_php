@@ -34,13 +34,15 @@ class MessageController extends Controller
 
         $user = $request->input('userId');
         $message = $request->input('body');
+        $title = $request->input('title');
 
         try {
 
             return Message::create([
 
-                'userID' => $user,
+                'user_id' => $user,
                 'body' => $message,
+                'title'=> $title
                 
 
             ]);

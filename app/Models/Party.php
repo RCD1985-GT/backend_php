@@ -11,7 +11,9 @@ class Party extends Model
 
     // FILLABLE
     protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR EL CAMPO 'name'
-        'name' 
+        'name',
+        'game_id',
+        'user_id'
     ];
 
 
