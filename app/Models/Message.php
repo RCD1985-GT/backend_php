@@ -9,16 +9,16 @@ class Message extends Model
 {
     use HasFactory;
 
-    // FILLABLE
-    protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR EL CAMPO 'body'
-        'body'
-
+    protected $fillable = [
+        'body', 'user_id', 
     ];
 
     // PUBLIC
-    public function messages() // POR QUE MESSAGES?
+    public function user()
     {
-
-        return $this->hasMany('App\Models\Message');
+        return $this->belongsTo('App\Models\User','user_id','id');
     }
+   
+
+   
 }

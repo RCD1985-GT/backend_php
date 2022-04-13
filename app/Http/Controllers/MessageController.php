@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
@@ -12,29 +12,26 @@ use App\Models\User;
 class MessageController extends Controller
 {
 
-    // FUNCION QUE ENSEÑA TODOS LOS MENSAJES
-    public function showAllMessages() {
+    // FUNCION QUE ENSEÑA TODOS LOS MENSAJES...OK
+    public function showAllMessages()
+    {
 
         try {
-            
-            return Message::all();
 
-        } 
-        
-        catch(QueryException $error) {
+            return Message::all();
+        } catch (QueryException $error) {
 
             return $error;
-
         }
-
     }
 
-        // FUNCION QUE AÑADE UN MENSAJE
-    public function addMessage(Request $request) {
 
-        $user = $request->input('userId');
+    // FUNCION QUE AÑADE UN MENSAJE...OK
+    public function addMessage(Request $request)
+    {
+
+        $user = $request->input('user_id');
         $message = $request->input('body');
-        $title = $request->input('title');
 
         try {
 
@@ -42,14 +39,10 @@ class MessageController extends Controller
 
                 'user_id' => $user,
                 'body' => $message,
-                'title'=> $title
                 
 
             ]);
-
-        } 
-        
-        catch (QueryException $error) {
+        } catch (QueryException $error) {
 
             $codigoError = $error->errorInfo[1];
 
@@ -58,25 +51,21 @@ class MessageController extends Controller
                 'error' => $codigoError
 
             ]);
-            
         }
-
     }
 
-     // FUNCION QUE ACTUALIZA UN MENSAJE
-    public function updateMessages(Request $request) {
+    // FUNCION QUE ACTUALIZA UN MENSAJE...NO
+    public function updateMessage(Request $request)
+    {
 
         $user = User::id(); // USER AQUI ESTA APAGADO
-        $messageId = $request->input('messageId');
+        $message = $request->input('body');
 
-        try { 
-            
-            $msg = ['message'=>$request->message];
-            return Message::where('id', '=', $messageId)->update($msg);
+        try {
 
-        } 
-        
-        catch (QueryException $error) {
+            $msg = ['body' => $request->message];
+            return Message::where('id', '=', $message)->update($msg);
+        } catch (QueryException $error) {
 
             $codigoError = $error->errorInfo[1];
 
@@ -85,24 +74,20 @@ class MessageController extends Controller
                 'error' => $codigoError
 
             ]);
-            
         }
-
     }
 
-     // FUNCION QUE BORRA UN MENSAJE
-    public function deleteMessage(Request $request) {
+    // FUNCION QUE BORRA UN MENSAJE...NO
+    public function deleteMessage(Request $request)
+    {
 
-        $user = User::id();
+        $user = User::id();// USER AQUI ESTA APAGADO
         $messageId = $request->input('messageId');
 
         try {
 
             return Message::where('id', '=', $messageId)->delete($messageId);
-
-        } 
-        
-        catch (QueryException $error) {
+        } catch (QueryException $error) {
 
             $codigoError = $error->errorInfo[1];
 
@@ -111,8 +96,6 @@ class MessageController extends Controller
                 'error' => $codigoError
 
             ]);
-            
         }
-
     }
 }

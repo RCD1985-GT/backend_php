@@ -9,7 +9,7 @@ use App\Models\Game;
 
 class GameController extends Controller
 {
-    // FUNCION QUE AÑADE JUEGO
+    // FUNCION QUE AÑADE JUEGO....OK
     public function addGame(Request $request) {
 
         $name = $request->input('name');
@@ -40,7 +40,7 @@ class GameController extends Controller
 
     }
 
-    // FUNCION QUE MUESTRA LOS JUEGOS
+    // FUNCION QUE MUESTRA LOS JUEGOS...OK
     public function showAllGames() {
 
         try {
@@ -57,7 +57,7 @@ class GameController extends Controller
 
     }
 
-    // FUNCION QUE ACTUALIZA JUEGO
+    // FUNCION QUE ACTUALIZA JUEGO.....NO
     public function updateGame(Request $request) {
 
         $id = $request->input('id');
@@ -97,7 +97,7 @@ class GameController extends Controller
 
     }
     
-    // FUNCION QUE BORRA JUEGO
+    // FUNCION QUE BORRA JUEGO...OK
     public function deleteGame(Request $request) {
 
         $id = $request->input('id');

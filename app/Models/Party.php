@@ -10,10 +10,10 @@ class Party extends Model
     use HasFactory;
 
     // FILLABLE
-    protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR EL CAMPO 'name'
+    protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR ESTOS CAMPOS
         'name',
         'game_id',
-        'user_id'
+        
     ];
 
 

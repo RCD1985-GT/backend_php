@@ -11,7 +11,7 @@ use App\Models\User;
 class PartyController extends Controller
 {
 
-    // FUNCION QUE MUESTRA PARTIDAS
+    // FUNCION QUE MUESTRA PARTIDAS...OK
     public function showAllParty()
     {
 
@@ -23,19 +23,21 @@ class PartyController extends Controller
         }
     }
 
-    // FUNCION QUE AÑADE PARTIDA
+    // FUNCION QUE AÑADE PARTIDA....OK
     public function addParty(Request $request)
     {
 
         $name = $request->input('name');
-        $game = $request->input('gameId');
+        $game = $request->input('game_id');
+        
 
         try {
 
             return Party::create([
 
                 'name' => $name,
-                'gameId' => $game
+                'game_id' => $game,
+                
 
             ]);
         } catch (QueryException $error) {
@@ -55,7 +57,7 @@ class PartyController extends Controller
     {
 
         $userId = User::id();
-        $partyId = $request->input('partyId');
+        $partyId = $request->input('game_id');
 
         try { // VERIFICA QE USUARIO ES CREADOR PARA PODER ELIMINAR LA PARTIDA
 

@@ -10,7 +10,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    // FUNCION QUE MUESTRA TODOS LOS USUARIOS
+    // FUNCION QUE MUESTRA TODOS LOS USUARIOS....OK
     public function showAllUsers(){
 
         try {
@@ -22,7 +22,7 @@ class UserController extends Controller
         }
     }
 
-    // FUNCION QUE MUESTRA EL PERFIL DEL USUARIO
+    // FUNCION QUE MUESTRA EL PERFIL DEL USUARIO....OK
     public function showProfile(Request $request){
 
         $id = $request->input('id');
@@ -37,7 +37,7 @@ class UserController extends Controller
         }
     }
     
-    // FUNCION QUE REGISTRA UN USUARIO
+    // FUNCION QUE REGISTRA UN USUARIO....OK
     public function registerUser(Request $request){
 
         $email = $request->input('email');
@@ -74,16 +74,17 @@ class UserController extends Controller
 
     }
     
-    // FUNCION QUE ACTUALIZA UN USUARIO
+    // FUNCION QUE ACTUALIZA UN USUARIO....NO
     public function updateProfile(Request $request){
         
         $id = $request->input('id');
         $email = $request->input('email');
         $name = $request->input('name');
-       
+        
+       // ESTE NO VA
     }
 
-    // FUNCION QUE BORRA UN USUARIO
+    // FUNCION QUE BORRA UN USUARIO.....OK
     public function deleteUser(Request $request){
 
         $id = $request->input('id');

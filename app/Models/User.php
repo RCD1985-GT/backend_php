@@ -21,7 +21,7 @@ class User extends Authenticatable
     // FILLABLE
     protected $fillable = [// SIGNIFICA QUE SOLO PUEDES RELLENAR LOS CAMPOS 'email' y 'password'
         'email',
-        'name', // añadido por mi
+        'name', 
         'password'
     ];
 

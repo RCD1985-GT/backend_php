@@ -16,15 +16,12 @@ class CreateMessagesTable extends Migration // CAMBIAR ESTA LINEA EN PARTY Y GAM
         Schema::create('messages', function (Blueprint $table) { // AQUI VAN LOS CAMPOS DE LA TABLA MESSAGE
             $table->id();
             $table->string('body');
-            $table->unsignedBigInteger('user_id'); 
-            // $table->unsignedBigInteger('party_id'); 
-            $table->string('title');
+            $table->unsignedBigInteger('user_id'); // Verificar si es 'user_id'
             $table->timestamps();
 
 
             // FOREIGN KEY
             $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreign('party_id')->references('id')->on('parties');
 
 
         });
