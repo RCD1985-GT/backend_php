@@ -18,7 +18,7 @@ Route::delete('delete', [UserController::class, 'deleteUser']);
 
 Route::post('addmessage', [MessageController::class, 'addMessage']);
 Route::get('allmessages', [MessageController::class, 'showAllMessages']);
-Route::put('updatemessage/{id}', [MessageController::class, 'updateMessages']);
+Route::put('updatemessage/{id}', [MessageController::class, 'updateMessage']);
 Route::delete('deletemessage/{id}', [MessageController::class, 'deleteMessage']);
 
 //Endpoints PARTY
@@ -32,7 +32,7 @@ Route::delete('deleteparty/{id}', [PartyController::class, 'deleteParty']);
 
 Route::post('addgame', [GameController::class, 'addGame']);
 Route::get('allgames', [GameController::class, 'showAllGames']);
-Route::put('updategame/{id}', [GameController::class, 'updateGames']);
+Route::put('updategame/{id}', [GameController::class, 'updateGame']);
 Route::delete('deletegame/{id}', [GameController::class, 'deleteGame']);
 
 

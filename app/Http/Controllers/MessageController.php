@@ -55,7 +55,7 @@ class MessageController extends Controller
     }
 
     // FUNCION QUE ACTUALIZA UN MENSAJE...OK
-    public function updateMessages(Request $request, $id)
+    public function updateMessage(Request $request, $id)
     {
 
 

@@ -64,45 +64,18 @@ class GameController extends Controller
 
         $game = Game::find($id);
 
-        $id = $request->input('id');
-
-        $this->validate($request, [
-
-            'id' => 'required',
-            'title' => 'required|string|min:1',
-            'url' => 'required|string|min:5'
-
-        ], [
-
-            'title' => 'title is required',
-            'url' => 'url is required',
-
-        ]);
-
-    
-        try {
-
-            $validatedUpdate = [
-
-                'title' => $request->title,
-                'url' => $request->url
-
-            ];
-
-            return Game::where('id', '=', $id)->update($validatedUpdate);
-
-        } 
+        $game->title = $request->title;
+        $game->url = $request->url;      
         
-        catch (QueryException $error) {
-
-            return $error;
-
-        }
+        $game->save();
+        return response()->json($game); 
 
     }
     
     // FUNCION QUE BORRA JUEGO...OK
-    public function deleteGame(Request $request, $id) {
+    public function deleteGame(Request $request, $id) 
+    
+    {
 
         $game = Game::find($id);
         $game->delete();
