@@ -11,7 +11,7 @@ use App\Http\Controllers\GameController;
 Route::post('register', [UserController::class, 'registerUser']);
 Route::get('allusers', [UserController::class, 'showAllUsers']);
 Route::post('profile', [UserController::class, 'showProfile']);
-Route::put('update', [UserController::class, 'updateProfile']);
+Route::put('update/{id}', [UserController::class, 'updateProfile']);
 Route::delete('delete', [UserController::class, 'deleteUser']);
 
 //Endpoints MESSAGE
