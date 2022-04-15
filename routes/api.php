@@ -19,13 +19,13 @@ Route::delete('delete', [UserController::class, 'deleteUser']);
 Route::post('addmessage', [MessageController::class, 'addMessage']);
 Route::get('allmessages', [MessageController::class, 'showAllMessages']);
 Route::put('updatemessage/{id}', [MessageController::class, 'updateMessages']);
-Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
+Route::delete('deletemessage/{id}', [MessageController::class, 'deleteMessage']);
 
 //Endpoints PARTY
 
 Route::post('addparty', [PartyController::class, 'addParty']);
 Route::get('allpartys', [PartyController::class, 'showAllParty']);
-Route::delete('deleteparty', [PartyController::class, 'deleteParty']);
+Route::delete('deleteparty/{id}', [PartyController::class, 'deleteParty']);
 
 
 //Endpoints GAME

@@ -53,25 +53,18 @@ class PartyController extends Controller
     }
 
     // FUNCION QUE BORRA PARTIDA....NO
-    public function deleteParty(Request $request)
+    public function deleteParty(Request $request, $id)
     {
 
-        $userId = User::id();
-        $partyId = $request->input('game_id');
+        $party = Party::find($id);
+        $party->delete();
+       
+       
+            return response()->json(
 
-        try { // VERIFICA QE USUARIO ES CREADOR PARA PODER ELIMINAR LA PARTIDA
+                $party
 
-            return Party::where('owner', '=', $userId)->where('id', '=', $partyId)->delete($partyId);
-
-        } catch (QueryException $error) {
-
-            $errorCode = $error->errorInfo[1];
-
-            return response()->json([
-
-                'error' => $errorCode
-
-            ]);
+            );
         }
-    }
+    
 }
