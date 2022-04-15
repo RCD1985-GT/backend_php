@@ -58,7 +58,11 @@ class GameController extends Controller
     }
 
     // FUNCION QUE ACTUALIZA JUEGO.....NO
-    public function updateGame(Request $request) {
+    public function updateGame(Request $request, $id)
+     
+    {
+
+        $game = Game::find($id);
 
         $id = $request->input('id');
 
@@ -98,21 +102,16 @@ class GameController extends Controller
     }
     
     // FUNCION QUE BORRA JUEGO...OK
-    public function deleteGame(Request $request) {
+    public function deleteGame(Request $request, $id) {
 
-        $id = $request->input('id');
+        $game = Game::find($id);
+        $game->delete();
 
-        try {
+        return response()->json(
 
-            return Game::where('id', '=', $id)->delete($id);
+            $game
 
-        } 
-        
-        catch (QueryException $error) {
-
-            return $error;
-
-        }
+        );
 
     }
 }

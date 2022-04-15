@@ -32,8 +32,8 @@ Route::delete('deleteparty/{id}', [PartyController::class, 'deleteParty']);
 
 Route::post('addgame', [GameController::class, 'addGame']);
 Route::get('allgames', [GameController::class, 'showAllGames']);
-Route::put('updategame', [GameController::class, 'updateGames']);
-Route::delete('deletegame', [GameController::class, 'deleteGame']);
+Route::put('updategame/{id}', [GameController::class, 'updateGames']);
+Route::delete('deletegame/{id}', [GameController::class, 'deleteGame']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
