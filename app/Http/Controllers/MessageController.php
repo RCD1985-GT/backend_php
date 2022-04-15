@@ -55,27 +55,21 @@ class MessageController extends Controller
     }
 
     // FUNCION QUE ACTUALIZA UN MENSAJE...NO
-    public function updateMessages(Request $request)
+    public function updateMessages(Request $request, $id)
     {
 
             
-        $user = User::id(); // USER AQUI ESTA APAGADO
-        $messageId = $request->input('messageId'); // YO NO TENGO 'MESSAGEID'
+        $message = Message::find($id);
+        $message->body = $request->input('body');
 
-        try {
+        $message->save();
 
-            $msg = ['message' => $request->message];
-            return Message::where('id', '=', $messageId)->update($msg);
-        } catch (QueryException $error) {
+        return response()->json(
 
-            $codigoError = $error->errorInfo[1];
+            $message
 
-            return response()->json([
-
-                'error' => $codigoError
-
-            ]);
-        }
+        );
+       
     }
 
     // FUNCION QUE BORRA UN MENSAJE....NO

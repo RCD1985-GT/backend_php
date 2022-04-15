@@ -18,7 +18,7 @@ Route::delete('delete', [UserController::class, 'deleteUser']);
 
 Route::post('addmessage', [MessageController::class, 'addMessage']);
 Route::get('allmessages', [MessageController::class, 'showAllMessages']);
-Route::put('updatemessage', [MessageController::class, 'updateMessages']);
+Route::put('updatemessage/{id}', [MessageController::class, 'updateMessages']);
 Route::delete('deletemessage', [MessageController::class, 'deleteMessage']);
 
 //Endpoints PARTY
