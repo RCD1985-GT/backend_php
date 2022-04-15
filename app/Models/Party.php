@@ -10,7 +10,7 @@ class Party extends Model
     use HasFactory;
 
     // FILLABLE
-    protected $fillable = [ // SIGNIFICA QUE SOLO PUEDES RELLENAR ESTOS CAMPOS
+    protected $fillable = [ 
         'name',
         'game_id',
         
@@ -18,7 +18,7 @@ class Party extends Model
 
 
     // PUBLIC
-    public function messages() { // POR QUE MESSAGES?
+    public function messages() { 
 
         return $this->hasMany('App\Models\Message');
 

@@ -42,8 +42,9 @@ class UserController extends Controller
 
         $email = $request->input('email');
         $name = $request->input('name');
-        $password = $request->input('password');
+        $password =bcrypt($request->input('password'));
 
+       
         $this -> validate( $request, [
             'name' => 'required|string',
             'email' => 'required|email',
@@ -74,14 +75,17 @@ class UserController extends Controller
 
     }
     
-    // FUNCION QUE ACTUALIZA UN USUARIO....NO
-    public function updateProfile(Request $request){
+    // FUNCION QUE ACTUALIZA UN USUARIO....OK
+    public function updateProfile(Request $request, $id){
         
-        $id = $request->input('id');
-        $email = $request->input('email');
-        $name = $request->input('name');
-        
-       // ESTE NO VA
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return response()->json($user);
+
+
     }
 
     // FUNCION QUE BORRA UN USUARIO.....OK

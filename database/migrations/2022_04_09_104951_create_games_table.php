@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->bigIncrements('id');
+            $table->string('title');
             $table->string('url');
             $table->timestamps();
 

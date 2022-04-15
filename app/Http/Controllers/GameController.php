@@ -12,14 +12,14 @@ class GameController extends Controller
     // FUNCION QUE AÑADE JUEGO....OK
     public function addGame(Request $request) {
 
-        $name = $request->input('name');
+        $title = $request->input('title');
         $url = $request->input('url');
 
         try {
 
             Game::create([
 
-                    'name' => $name,
+                    'title' => $title,
                     'url' => $url
 
                 ]);
@@ -65,12 +65,12 @@ class GameController extends Controller
         $this->validate($request, [
 
             'id' => 'required',
-            'name' => 'required|string|min:1',
+            'title' => 'required|string|min:1',
             'url' => 'required|string|min:5'
 
         ], [
 
-            'name' => 'title is required',
+            'title' => 'title is required',
             'url' => 'url is required',
 
         ]);
@@ -80,7 +80,7 @@ class GameController extends Controller
 
             $validatedUpdate = [
 
-                'name' => $request->title,
+                'title' => $request->title,
                 'url' => $request->url
 
             ];

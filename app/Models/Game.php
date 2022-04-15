@@ -10,11 +10,11 @@ class Game extends Model
     use HasFactory;
 
     // FILLABLE
-    protected $fillable = [ // // SIGNIFICA QUE SOLO PUEDES RELLENAR LOS CAMPOS 'title' y 'url'
-        'name', 'url'
+    protected $fillable = [ 
+        'title', 'url'
     ];
 
-    public function user() { // POR QUE USER?
+    public function user() { 
 
         return $this->hasMany('App\Models\Party');
 

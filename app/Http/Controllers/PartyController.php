@@ -52,7 +52,7 @@ class PartyController extends Controller
         }
     }
 
-    // FUNCION QUE BORRA PARTIDA
+    // FUNCION QUE BORRA PARTIDA....NO
     public function deleteParty(Request $request)
     {
 
