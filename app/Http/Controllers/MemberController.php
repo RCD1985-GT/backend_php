@@ -22,7 +22,7 @@ class MemberController extends Controller
      */
 
 
-    // FUNCION QUE CREA MIENBRO
+    // FUNCION QUE CREA NUEVO MIEMBRO
     public function newMember(Request $request)
     {
         $member = Member::where([
@@ -47,21 +47,8 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // // FUNCION QUE MUESTRA MIEMBROS POR ID
-    // public function show($id)
-    // {
-    //     $member = Member::find($id);
-    //     return response()->json($member);
-    // }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-
-    // FUNCION QUE BORRA MIEMBRO
+  
+    // FUNCION QUE BORRA MIEMBRO POR ID
     public function deleteMember($id)
     {
         $member = Member::find($id);
