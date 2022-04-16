@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 
 use App\Models\User;
@@ -122,4 +124,44 @@ class UserController extends Controller
         }
     }
     
+
+
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if (password_verify($request->password, $user->password)) {
+                $token = JWTAuth::fromUser($user);
+                return response()->json(compact('user', 'token'), 200);
+            } else {
+                return response()->json(['error' => 'Unauthorised'], 401);
+            }
+        } else {
+            return response()->json(['error' => 'Unauthorised'], 401);
+        }
+    }
+
+    
+
+     // FUNCION LOGOUT
+    public function logout(Request $request)
+    {
+        
+        try {
+            
+            JWTAuth::invalidate($request->bearerToken());
+            return response()->json('User logged out successfully', 200);
+        } catch (JWTException $exception) {
+            return response()->json(
+                [
+                    'error' => 'Sorry, the user cannot be logged out',
+                    'description' => $exception
+                ],
+                500
+            );
+        }
+    }
+
+
+
 }

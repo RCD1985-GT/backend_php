@@ -7,12 +7,29 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PartyController; 
 use App\Http\Controllers\GameController;
 
+
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::post('logout', [UserController::class, 'logout']);
+
+    // Route::get('/games/{game}/parties', [PartyController::class, 'getByGame']); // hay que hacerlo?
+
+    // Route::get('/parties/{party}/messages', [MessageController::class, 'getByParty']);
+});
+
+
+
 //Endpoints USER
 Route::post('register', [UserController::class, 'registerUser']);
 Route::get('allusers', [UserController::class, 'showAllUsers']);
 Route::post('profile', [UserController::class, 'showProfile']);
 Route::put('update/{id}', [UserController::class, 'updateProfile']);
 Route::delete('delete', [UserController::class, 'deleteUser']);
+
+// Login
+Route::post('login', [UserController::class, 'login']);
+
+
+
 
 //Endpoints MESSAGE
 
@@ -34,6 +51,8 @@ Route::post('addgame', [GameController::class, 'addGame']);
 Route::get('allgames', [GameController::class, 'showAllGames']);
 Route::put('updategame/{id}', [GameController::class, 'updateGame']);
 Route::delete('deletegame/{id}', [GameController::class, 'deleteGame']);
+
+// Login
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
