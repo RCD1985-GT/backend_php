@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PartyController; 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\MemberController;
 
 
 Route::group(['middleware' => 'jwt.auth'], function () {
@@ -20,15 +21,11 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
 //Endpoints USER
 Route::post('register', [UserController::class, 'registerUser']);
+Route::post('login', [UserController::class, 'login']);
 Route::get('allusers', [UserController::class, 'showAllUsers']);
 Route::post('profile', [UserController::class, 'showProfile']);
 Route::put('update/{id}', [UserController::class, 'updateProfile']);
 Route::delete('delete', [UserController::class, 'deleteUser']);
-
-// Login
-Route::post('login', [UserController::class, 'login']);
-
-
 
 
 //Endpoints MESSAGE
@@ -52,8 +49,10 @@ Route::get('allgames', [GameController::class, 'showAllGames']);
 Route::put('updategame/{id}', [GameController::class, 'updateGame']);
 Route::delete('deletegame/{id}', [GameController::class, 'deleteGame']);
 
-// Login
-
+// Endpoints MEMBER
+Route::get('/members', [MemberController::class, 'allMembers']);
+Route::post('/members', [MemberController::class, 'newMember']);
+Route::delete('/members/{id}', [MemberController::class, 'deleteMember']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
