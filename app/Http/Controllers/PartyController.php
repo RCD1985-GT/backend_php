@@ -22,6 +22,16 @@ class PartyController extends Controller
             return $error;
         }
     }
+    
+    // FUNCION QUE MUESTRA PARTIDAS POR GAME_ID...OK
+   
+        public function partyByGameId($id)
+        {
+            $parties = Party::where('game_id', $id)->get();
+            return response()->json($parties);
+        }
+    
+
 
     // FUNCION QUE AÑADE PARTIDA....OK
     public function addParty(Request $request)
@@ -52,7 +62,7 @@ class PartyController extends Controller
         }
     }
 
-    // FUNCION QUE BORRA PARTIDA....NO
+    // FUNCION QUE BORRA PARTIDA....OK
     public function deleteParty(Request $request, $id)
     {
 
@@ -66,5 +76,7 @@ class PartyController extends Controller
 
             );
         }
+
+
     
 }

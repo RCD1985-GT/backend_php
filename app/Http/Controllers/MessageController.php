@@ -71,7 +71,7 @@ class MessageController extends Controller
         );
     }
 
-    // FUNCION QUE BORRA UN MENSAJE....NO
+    // FUNCION QUE BORRA UN MENSAJE....OK
     public function deleteMessage(Request $request, $id)
     {
 
