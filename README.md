@@ -6,6 +6,13 @@ un rato de ocio afterwork.
 
 
 Instalación:
+
+POSTMAN 
+[![Probar en Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/19801979/Uyr7FxN9)
+
+o 
+
+
 - Clonar repositorio : git clone https://github.com/RCD1985-GT/backend_php.git
 - Instalar dependencias: composer install
 - Crear la base de datos en MySql Workbench
@@ -48,10 +55,4 @@ Route::get('/members', [MemberController::class, 'allMembers']);
 Route::post('/members', [MemberController::class, 'newMember']);
 Route::delete('/members/{id}', [MemberController::class, 'deleteMember']);
 
-POSTMAN 
-[![Probar en Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/19801979/Uyr7FxN9)
-Falta captura de pantalla
 
-
-HEROKU
-completar conexion
