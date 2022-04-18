@@ -8,6 +8,8 @@ use App\Http\Controllers\PartyController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\MemberController;
 
+// https://gameparty-rodrigo.herokuapp.com/api/ ENDPOIUT DE HEROKU
+// https://documenter.getpostman.com/view/19801979/Uyr7FxN9 README
 
 //Endpoints USER
 Route::post('register', [UserController::class, 'registerUser']);
