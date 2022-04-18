@@ -143,7 +143,7 @@ class UserController extends Controller
 
     
 
-     // FUNCION LOGOUT
+     // FUNCION LOGOUT...OK
     public function logout(Request $request)
     {
         

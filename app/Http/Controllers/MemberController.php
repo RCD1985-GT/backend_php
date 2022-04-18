@@ -48,7 +48,7 @@ class MemberController extends Controller
      */
 
   
-    // FUNCION QUE BORRA MIEMBRO POR ID
+    // FUNCION QUE BORRA MIEMBRO POR ID....OK
     public function deleteMember($id)
     {
         $member = Member::find($id);
