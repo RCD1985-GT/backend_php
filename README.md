@@ -5,14 +5,12 @@ formar grupos para jugar a un videojuego, con el objetivo de poder compartir
 un rato de ocio afterwork.
 
 
-Instalación:
-
-POSTMAN 
+Comprobacion de endpoits en POSTMAN
 [![Probar en Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/19801979/Uyr7FxN9)
 
 o 
 
-
+Instalación:
 - Clonar repositorio : git clone https://github.com/RCD1985-GT/backend_php.git
 - Instalar dependencias: composer install
 - Crear la base de datos en MySql Workbench
